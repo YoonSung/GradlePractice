@@ -100,5 +100,39 @@ perator is simply an alias for doLast.
 
 
 -----------------------------------------------------
+Example 6.12. Adding extra properties to a task
+
+task myTask {
+    ext.myProperty = "myValue"
+}
+
+task printTaskProperties << {
+    println myTask.myProperty
+}
 
 
+-----------------------------------------------------
+Example 6.15. Defining a default tasks
+
+sks 'clean', 'run'
+
+task clean << {
+    println 'Default Cleaning!'
+}
+
+task run << {
+    println 'Default Running!'
+}
+
+task other << {
+    println "I'm not a default task!"
+}
+
+> gradle -q
+Default Cleaning!
+Default Running!
+
+
+-----------------------------------------------------
+-----------------------------------------------------
+-----------------------------------------------------

@@ -29,7 +29,6 @@ task intro(dependsOn: hello) << {
     }
 }
 task0.dependsOn task2, task3
-*/
 
 task hello << {
     println 'Hello Earth'
@@ -42,4 +41,27 @@ hello.doLast {
 }
 hello << {
     println 'Hello Jupiter'
+}
+
+task myTask {
+    ext.myProperty = "myValue"
+}
+
+task printTaskProperties << {
+    println myTask.myProperty
+}
+*/
+
+defaultTasks 'clean', 'run'
+
+task clean << {
+    println 'Default Cleaning!'
+}
+
+task run << {
+    println 'Default Running!'
+}
+
+task other << {
+    println "I'm not a default task!"
 }
