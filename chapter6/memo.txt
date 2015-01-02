@@ -1,3 +1,4 @@
+-----------------------------------------------------
 To try this out, create the following build script named build.gradle.
 
 Example 6.1. Your first build script build.gradle
@@ -9,7 +10,11 @@ Example 6.1. Your first build script build.gradle
 
 move to containing directory and execute build script with >grade -q hello
 
+etc.
+Most of the examples in this user guide are run with the -q command-line option. This suppresses Gradle's log messages, so that only the output of the tasks is shown. This keeps the example output in this user guide a little clearer. 
 
+
+-----------------------------------------------------
 Example 6.3. A task definition shortcut
 There is a shorthand way to define a task like our hello task above, which is more concise.
 
@@ -18,10 +23,18 @@ task hello << {
 }
 
 
+-----------------------------------------------------
 Example 6.4. Using Groovy in Gradle's tasks
 
 task upper << {
     String someString = 'mY_nAmE'
     println "Original: " + someString 
     println "Upper case: " + someString.toUpperCase()
+}
+
+-----------------------------------------------------
+Example 6.5. Using Groovy in Gradle's tasks
+
+task count << {
+    4.times { print "$it " }
 }

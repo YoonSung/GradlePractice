@@ -15,3 +15,7 @@ task upper << {
     println "Original: " + someString
     println "Upper case: " + someString.toUpperCase()
 }
+
+task count << {
+    4.times { print "$it " }
+}
