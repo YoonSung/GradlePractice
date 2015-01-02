@@ -1,0 +1,11 @@
+To try this out, create the following build script named build.gradle.
+
+Example 6.1. Your first build script build.gradle
+    
+task hello {
+     doLast {
+          println 'Hello world!'
+     }
+}
+
+move to containing directory and execute build script with >grade -q hello
