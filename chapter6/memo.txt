@@ -9,3 +9,10 @@ task hello {
 }
 
 move to containing directory and execute build script with >grade -q hello
+
+
+There is a shorthand way to define a task like our hello task above, which is more concise.
+
+task hello << {
+    println 'Hello world!'
+}
