@@ -8,7 +8,6 @@ task hello {
 task hello << {
     println 'Hello world!'
 }
-*/
 
 task upper << {
     String someString = 'mY_nAmE'
@@ -20,9 +19,6 @@ task count << {
     4.times { print "$it " }
 }
 
-task hello << {
-    println 'Hello world!'
-}
 task intro(dependsOn: hello) << {
     println "I'm Gradle"
 }
@@ -32,5 +28,18 @@ task intro(dependsOn: hello) << {
         println "I'm task number $counter"
     }
 }
-
 task0.dependsOn task2, task3
+*/
+
+task hello << {
+    println 'Hello Earth'
+}
+hello.doFirst {
+    println 'Hello Venus'
+}
+hello.doLast {
+    println 'Hello Mars'
+}
+hello << {
+    println 'Hello Jupiter'
+}

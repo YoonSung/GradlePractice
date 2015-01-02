@@ -75,4 +75,30 @@ task0.dependsOn task2, task3
 
 
 -----------------------------------------------------
+Example 6.10. Accessing a task via API - adding behaviour
+
+task hello << {
+    println 'Hello Earth'
+}
+hello.doFirst {
+    println 'Hello Venus'
+}
+hello.doLast {
+    println 'Hello Mars'
+}
+hello << {
+    println 'Hello Jupiter'
+}
+
+> gradle -q hello
+Hello Venus
+Hello Earth
+Hello Mars
+Hello Jupiter
+
+perator is simply an alias for doLast.
+
+
+-----------------------------------------------------
+
 
