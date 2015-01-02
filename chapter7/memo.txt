@@ -1,0 +1,47 @@
+----------------------------------------
+7.1. The Java plugin
+
+As we have seen, Gradle is a general-purpose build tool. It can build pretty much anything you care to implement in your build script. Out-of-the-box, however, it doesn't build anything unless you add code to your build script to do so.o
+
+The Java plugin is convention based. This means that the plugin defines default values for many aspects of the project, such as where the Java source files are located. If you follow the convention in your project, you generally don't need to do much in your build script to get a useful build. Gradle allows you to customize your project if you don't want to or cannot follow the convention in some way. 
+
+
+----------------------------------------
+7.2.1. Building the project
+
+Example 7.1. Using the Java plugin
+
+> apply plugin: 'java'
+
+This is all you need to define a Java project. This will apply the Java plugin to your project, which adds a number of tasks to your project.
+
+What tasks are available?
+
+You can use gradle tasks to list the tasks of a project. This will let you see the tasks that the Java plugin has added to your project.
+Gradle expects to find your production source code under src/main/java and your test source code under src/test/java. In addition, any files under src/main/resources will be included in the JAR file as resources, and any files under src/test/resources will be included in the classpath used to run the tests. All output files are created under the build directory, with the JAR file ending up in the build/libs directory.
+
+
+----------------------------------------
+7.2.2. External dependencies
+
+Example 7.3. Adding Maven repository
+
+Usually, a Java project will have some dependencies on external JAR files. To reference these JAR files in the project, you need to tell Gradle where to find them. In Gradle, artifacts such as JAR files, are located in a repository. A repository can be used for fetching the dependencies of a project, or for publishing the artifacts of a project, or both. For this example, we will use the public Maven repository:
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+}
+
+----------------------------------------
+7.2.3. Customizing the project
+
+Here we will specify the version number for our Java project, along with the Java version our source is written in. We also add some attributes to the JAR manifest.
+
+----------------------------------------
+----------------------------------------
+----------------------------------------
