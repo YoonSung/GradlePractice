@@ -38,3 +38,41 @@ Example 6.5. Using Groovy in Gradle's tasks
 task count << {
     4.times { print "$it " }
 }
+
+
+-----------------------------------------------------
+Example 6.6. Declaration of task that depends on other task
+
+task hello << {
+    println 'Hello world!'
+}
+task intro(dependsOn: hello) << {
+    println "I'm Gradle"
+}
+
+
+-----------------------------------------------------
+Example 6.8. Dynamic creation of a task
+
+4.times { counter ->
+    task "task$counter" << {
+        println "I'm task number $counter"
+    }
+}
+
+gradle -q task1
+
+
+-----------------------------------------------------
+Example 6.9. Accessing a task via API - adding a dependency
+
+4.times { counter ->
+    task "task$counter" << {
+        println "I'm task number $counter"
+    }
+}
+task0.dependsOn task2, task3
+
+
+-----------------------------------------------------
+
