@@ -1,18 +1,27 @@
 To try this out, create the following build script named build.gradle.
 
 Example 6.1. Your first build script build.gradle
-    
-task hello {
-     doLast {
-          println 'Hello world!'
-     }
-}
+	task hello {
+     		doLast {
+          		println 'Hello world!'
+     		}
+	}
 
 move to containing directory and execute build script with >grade -q hello
 
 
+Example 6.3. A task definition shortcut
 There is a shorthand way to define a task like our hello task above, which is more concise.
 
 task hello << {
     println 'Hello world!'
+}
+
+
+Example 6.4. Using Groovy in Gradle's tasks
+
+task upper << {
+    String someString = 'mY_nAmE'
+    println "Original: " + someString 
+    println "Upper case: " + someString.toUpperCase()
 }
